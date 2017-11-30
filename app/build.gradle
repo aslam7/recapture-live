@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+def VUFORIA_SDK_DIR = '../../..'
+def NATIVE_LIB_DIR = 'build/lib'
+def JAR_DIR = 'build/java/vuforia'
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDir "$VUFORIA_SDK_DIR/$NATIVE_LIB_DIR/"
+    }
+    defaultConfig {
+        applicationId "com.example.apiiit_rkv"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    archivesBaseName = rootProject.projectDir.getName()
+    buildTypes {
+        release {
+            minifyEnabled false
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+    }
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/aws-android-sdk-cognito-2.2.11.jar')
+    compile files('libs/login-with-amazon-sdk.jar')
+    //    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+    //    compile 'com.android.support:appcompat-v7:25.4.0'
+    compile files("$VUFORIA_SDK_DIR/$JAR_DIR/Vuforia.jar")
+
+//    compile 'com.google.android.gms:play-services-appindexing:9.8.0'
+//    compile 'com.google.android.gms:play-services-base:9.8.0'
+//    compile 'com.google.android.gms:play-services-auth:9.8.0'
+//    compile 'com.google.firebase:firebase-auth:9.8.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:support-core-utils:25.1.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    compile 'com.amazonaws:aws-android-sdk-s3:2.3.3'
+    compile 'com.amazonaws:aws-android-sdk-ddb:2.3.3'
+    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+    compile 'com.google.firebase:firebase-auth:11.0.2'
+    compile 'com.google.android.gms:play-services-auth:11.0.2'
+    testCompile 'junit:junit:4.12'
+}
+
+
+apply plugin: 'com.google.gms.google-services'

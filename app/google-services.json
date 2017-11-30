@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "493916542037",
+    "firebase_url": "https://rlfirstapk.firebaseio.com",
+    "project_id": "rlfirstapk",
+    "storage_bucket": "rlfirstapk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493916542037:android:8d52f9f7a6b3d888",
+        "android_client_info": {
+          "package_name": "com.example.apiiit_rkv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493916542037-g1oe3jdph5ac900e2n68ele2v0us10kt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk7H_xIi6IUi7b0_4FRrgodzcZYgepQFk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
